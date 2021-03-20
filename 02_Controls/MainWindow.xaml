@@ -1,0 +1,152 @@
+﻿<Window x:Class="_02_Controls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_02_Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="521.4" Width="800">
+    <TabControl>
+        <!--Button
+            ListBox
+            Label
+            GridView 
+            TextBox
+            Combobox
+            RadioButton
+            Checkbox
+            Datepicker
+        
+            Textblock
+            Hyperlink
+            Image
+            Media
+            Expander
+        
+            Groupbox
+        -->
+        <TabItem Header="Control 01">
+            <Border Margin="10" 
+                    Padding="20" 
+                    BorderThickness="2"
+                    CornerRadius="10 20 30 50"
+                    BorderBrush="Black">
+                <StackPanel Background="AliceBlue">
+                    <Button Width="100" Height="40" ClickMode="Release" Click="Button_Click">
+                        Click me
+                    </Button>
+                    <TextBox Name="textBox"
+                        Margin="10" 
+                             Padding="5"
+                             Height="30" />
+                    <TextBlock Name="textInfo" TextWrapping="Wrap">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu
+                    </TextBlock>
+                    <Label>
+                        <Hyperlink Name="googleLink" NavigateUri="https://google.com" Click="Link_Click">Google</Hyperlink>
+                    </Label>
+                    <PasswordBox Password="Textsdfgdfgsfgsgs" PasswordChar="#"></PasswordBox>
+                    <RadioButton IsChecked="True">C++</RadioButton>
+                    <RadioButton>C#</RadioButton>
+                    <RadioButton>C++</RadioButton>
+
+                    <GroupBox Header="Other group">
+                        <StackPanel>
+                            <RadioButton Checked="ToggleButton_OnChecked">Red</RadioButton>
+                            <RadioButton Checked="ToggleButton_OnChecked">Green</RadioButton>
+                            <RadioButton Checked="ToggleButton_OnChecked">Blue</RadioButton>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Check box group">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="True">One</CheckBox>
+                            <CheckBox>Two</CheckBox>
+                            <CheckBox IsChecked="{x:Null}">Three</CheckBox>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </Border>
+        </TabItem>
+        <TabItem Header="Control 02">
+            <Grid Background="BlanchedAlmond">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="71*"/>
+                    <RowDefinition Height="45*"/>
+                </Grid.RowDefinitions>
+                <MediaElement Name="media" LoadedBehavior="Manual"></MediaElement>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Button Margin="10" Height="30" Click="Button_Click_1" IsDefault="True">Open</Button>
+                    <Button Margin="10" Height="30" Click="Play_click">Play</Button>
+                    <Button Name="pauseBtn" Margin="10" Height="30" Click="ShowPopup">More...</Button>
+                    
+                    <Popup Width="200" Height="100"  Name="popup" PopupAnimation="Scroll" Placement="MousePoint">
+                        <StackPanel Background="Brown">
+                            <Button Width="100" Height="30" Margin="10" Click="Pause_Click">Pause</Button>
+                            <Button Width="100" Height="30" Margin="10" Click="stop_click">Stop</Button>
+                        </StackPanel>
+                    </Popup>
+                    
+                    <Slider VerticalAlignment="Center" 
+                            Orientation="Horizontal" 
+                            Minimum="0" 
+                            Maximum="1" 
+                            SmallChange="0.1"
+                            LargeChange="0.5"
+                            Value="{Binding ElementName=media, Path=Volume}"
+                            Width="286"></Slider>
+                    <!--ValueChanged="Volume_change"-->
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Controls 02">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="19*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="420*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Menu Margin="0,0,0,0.2">
+                        <MenuItem Header="Open" Click="open_click" />
+                        <MenuItem Header="Save" Click="Save_click" />
+                    </Menu>
+                    <Button Content="Close" IsCancel="true" Click="Close_click">
+                        <Button.ToolTip>
+                            <StackPanel>
+                                <Label>Hello</Label>
+                                <Button>Ok</Button>
+                                <Image Source="img/apple.png"/>
+                            </StackPanel>
+                        </Button.ToolTip>
+                    </Button>
+                </StackPanel>
+                <ToolBar Grid.Row="1">
+                    <Button Click="Ink_Click">Ink</Button>
+                    <Button Click="Erase_Click">Erase</Button>
+                    <ComboBox
+                        SelectionChanged="color_change"
+                        Name="cbColor" Width="100">
+                        <StackPanel Tag="Red" Orientation="Horizontal">
+                            <Ellipse Fill="Red" Width="20" Height="20"></Ellipse>
+                            <Label>Red</Label>
+                        </StackPanel>
+                        <StackPanel Tag="Green" Orientation="Horizontal">
+                            <Ellipse Fill="Green" Width="20" Height="20"></Ellipse>
+                            <Label>Green</Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Fill="Blue" Width="20" Height="20"></Ellipse>
+                            <Label>Blue</Label>
+                        </StackPanel>
+                    </ComboBox>
+                    <ComboBox Name="cbSize" ItemsSource="{Binding }" Width="100"></ComboBox>
+                </ToolBar>
+                <InkCanvas Name="ink"
+                           Grid.Row="2"/>
+            </Grid>
+
+        </TabItem>
+    </TabControl>
+</Window>
