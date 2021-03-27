@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_Wpf_Intro", "01_Wpf_Intr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_Controls", "02_Controls\02_Controls.csproj", "{62F5D174-9917-4F57-8232-52A8D62A8222}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_Toolbar", "03_Toolbar\03_Toolbar.csproj", "{377317ED-E91F-44EE-BA4D-247753B67526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_Events", "04_Events\04_Events.csproj", "{3996C044-5DE3-4CA5-8446-74ED6D36BD13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{62F5D174-9917-4F57-8232-52A8D62A8222}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62F5D174-9917-4F57-8232-52A8D62A8222}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62F5D174-9917-4F57-8232-52A8D62A8222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{377317ED-E91F-44EE-BA4D-247753B67526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{377317ED-E91F-44EE-BA4D-247753B67526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{377317ED-E91F-44EE-BA4D-247753B67526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{377317ED-E91F-44EE-BA4D-247753B67526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3996C044-5DE3-4CA5-8446-74ED6D36BD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3996C044-5DE3-4CA5-8446-74ED6D36BD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3996C044-5DE3-4CA5-8446-74ED6D36BD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3996C044-5DE3-4CA5-8446-74ED6D36BD13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
