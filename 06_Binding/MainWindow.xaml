@@ -1,0 +1,138 @@
+﻿<Window x:Class="_06_Binding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_06_Binding"
+        mc:Ignorable="d"
+        Title="MainWindow" Name="window" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Bindings">
+            <StackPanel Background="AntiqueWhite">
+                <!--Slider - data source -->
+                <Slider Name="slider"
+                        Minimum="3"
+                        Maximum="100"
+                        TickFrequency="10"
+                        TickPlacement="Both"
+                        Value="80"
+                />
+
+                <!-- Label - data receiver -->
+                <Label Name="lbl1" FontSize="{Binding ElementName=slider, 
+                    Path=Value, Mode=TwoWay
+                    }">Hello</Label>
+                <!-- 
+                    Element Name - з якого елемента будемо брати значення Path?
+                "Прив'язали" значення повзунка слайдера до розміру шрифта лейби
+                Mode - режим прив'язки
+                Two way - якщо зміниться приймач - то АВТОМАТИЧНО зміниться і джерело
+                -->
+                <Button HorizontalAlignment="Left" Width="100" Click="ButtonBase_OnClick">Change size</Button>
+            </StackPanel>
+        </TabItem>
+
+        <TabItem Header="Bindings with code">
+            <StackPanel Background="AntiqueWhite">
+                <!--Slider - data source -->
+                <Slider Name="slider2"
+                        Minimum="3"
+                        Maximum="100"
+                        TickFrequency="10"
+                        TickPlacement="Both"
+                        Value="30"
+                />
+
+                <!--Error - Password не є властивістю залежностей
+                відповідно не можемо робити прив'язки
+                <PasswordBox Password="{Binding Path=Value}"></PasswordBox>-->
+                <!-- Label - data receiver -->
+                <Label Name="lbl2" Foreground="Black">Hello with code</Label>
+                <TextBox Name="txtColor" Margin="10"></TextBox>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Update bindings">
+            <StackPanel Background="AliceBlue">
+                <Slider Name="slider3"
+                        Minimum="3"
+                        Maximum="100"
+                        TickFrequency="10"
+                        TickPlacement="Both"
+                        Value="30"
+                        IsSnapToTickEnabled="True"
+                />
+                <ListBox Name="lbColors">
+                    <ListBoxItem Foreground="Red">Red</ListBoxItem>
+                    <ListBoxItem Foreground="Green">Green</ListBoxItem>
+                    <ListBoxItem Foreground="Blue">Blue</ListBoxItem>
+                    <ListBoxItem Foreground="Orange">Orange</ListBoxItem>
+                </ListBox>
+                <Label Name="lbl3"
+                       Foreground="Black"
+                       FontSize="{Binding ElementName=slider3, Path=Value}"
+                       Content="{Binding ElementName=tbText,
+                    Path=Text,
+                    UpdateSourceTrigger=LostFocus}"
+                       Background="{Binding ElementName=lbColors,
+                    Path=SelectedItem.Foreground}"
+                       />
+                <TextBox Name="tbText" 
+                         Margin="10"
+                         Text="{Binding ElementName=slider3, Path=Value,
+                    UpdateSourceTrigger=PropertyChanged}" />
+                <!-- UpdateSourceTrigger - 
+                коли оновлюємо джерело?
+                по замовчуванню для всіх контролів - PropertyChanged, а для текстбоксів - LostFocus-->
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Relative Bindings">
+            <StackPanel Margin="20 10 3 8">
+                <ListBox Name="lbFonts">
+                    <ListBoxItem Foreground="Red">Times New Roman</ListBoxItem>
+                    <ListBoxItem Foreground="Green">Impact</ListBoxItem>
+                    <ListBoxItem Foreground="Blue">Calibri</ListBoxItem>
+                    <ListBoxItem Foreground="Orange">Consolas</ListBoxItem>
+                </ListBox>
+                <StackPanel Margin="7" Background="Azure">
+                    <Label FontSize="20" FontWeight="Bold" 
+                           FontFamily="{Binding
+                                        ElementName=lbFonts,
+                                        Path=SelectedItem.Content}"
+                                        Content="{Binding RelativeSource={RelativeSource Mode=Self},
+                                                    Path=FontFamily}">
+                    </Label>
+
+                    <Label FontSize="30" Foreground="Magenta" 
+                           Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=StackPanel, AncestorLevel=2},
+                                Path=Margin}"
+                           />
+                    <Label FontSize="40" Foreground="Green" 
+                           Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window},
+                        Path=Title}"/>
+                </StackPanel>
+
+                <!--<TextBox Background="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}" />-->
+                <TextBox Text="{Binding ElementName=window, Path=Background, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged }" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Update collections">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="387*"/>
+                    <ColumnDefinition Width="401*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <ListBox ItemsSource="{Binding}" Name="box1" />
+                    <Button Click="AddSimple">Add simple</Button>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <ListBox ItemsSource="{Binding}" Name="box2"/>
+                    <Button Click="AddUpdatable">Add updatable</Button>
+                </StackPanel>
+
+            </Grid>
+        </TabItem>
+     
+    </TabControl>
+</Window>

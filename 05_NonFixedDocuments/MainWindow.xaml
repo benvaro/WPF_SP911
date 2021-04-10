@@ -1,0 +1,124 @@
+﻿<Window x:Class="_05_NonFixedDocuments.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_05_NonFixedDocuments"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="621.4" Width="753.2">
+    <TabControl>
+        <TabItem Header="PageViewer">
+            <FlowDocumentScrollViewer>
+                <!--FlowDocumentPageViewer>-->
+                <FlowDocument>
+                    <Paragraph Background="Black" Foreground="White"
+                               TextAlignment="Center"
+                               FontSize="22" Padding="10">TITLE</Paragraph>
+                    <Paragraph>
+                        <Bold Foreground="Red">XAML (англ. eXtensible Application Markup Language)</Bold> — декларативна мова розмітки. З точки зору моделі програмування .NET Framework мова XAML спрощує створення користувацького інтерфейсу для програми .NET Framework. Можна створити видимі елементи інтерфейсу користувача в декларативній розмітці XAML, а потім відокремити визначення користувача інтерфейсу від логіки часу виконання, використовуючи файли коду програмної частини, приєднані до розмітки за допомогою визначень поділюваних класів. Мова XAML безпосередньо представляє створення екземплярів об'єктів в конкретному наборі резервних типів, визначених у збірках. У цьому полягає її відмінність від більшості інших мов розмітки, які, як правило, є інтерпретованими мовами без прямого зв'язку з системою резервних типів. Мова XAML забезпечує робочий процес, що дозволяє декільком учасникам розробляти користувацький інтерфейс і логіку програми, використовуючи потенційно різні засоби.
+
+                        При поданні у вигляді тексту файли XAML є XML-файлами, 
+                        які зазвичай мають розширення .xaml. Файли 
+                        можна зберігати в
+                        <Italic>будь-якому кодуванні, що підтримує</Italic>
+                        XML, але зазвичай використовується кодування UTF-8.
+                    </Paragraph>
+                </FlowDocument>
+            </FlowDocumentScrollViewer>
+        </TabItem>
+        <TabItem Header="Document Reader">
+            <FlowDocumentReader Name="reader">
+                <FlowDocument>
+                    <Paragraph Background="Black" Foreground="White"
+                               TextAlignment="Center"
+                               FontSize="22" Padding="10">TITLE</Paragraph>
+                    <Paragraph>
+                        <Bold Foreground="Red">XAML (англ. eXtensible Application Markup Language)</Bold> — декларативна мова розмітки. З точки зору моделі програмування .NET Framework мова XAML спрощує створення користувацького інтерфейсу для програми .NET Framework. Можна створити видимі елементи інтерфейсу користувача в декларативній розмітці XAML, а потім відокремити визначення користувача інтерфейсу від логіки часу виконання, використовуючи файли коду програмної частини, приєднані до розмітки за допомогою визначень поділюваних класів. Мова XAML безпосередньо представляє створення екземплярів об'єктів в конкретному наборі резервних типів, визначених у збірках. У цьому полягає її відмінність від більшості інших мов розмітки, які, як правило, є інтерпретованими мовами без прямого зв'язку з системою резервних типів. Мова XAML забезпечує робочий процес, що дозволяє декільком учасникам розробляти користувацький інтерфейс і логіку програми, використовуючи потенційно різні засоби.
+
+                        При поданні у вигляді тексту файли XAML є XML-файлами, 
+                        які зазвичай мають розширення .xaml. Файли 
+                        можна зберігати в
+                        <Figure Padding="10" Width="200" Foreground="Blue">
+                            <Paragraph>.NET Framework (читається дот-нет) — програмна технологія, запропонована фірмою Microsoft як платформа для створення як звичайних програм, так і веб-застосунків. Багато в чому є продовженням ідей та принципів, покладених в технологію Java. Однією з ідей .NET є сумісність служб, написаних різними мовами. Хоча ця можливість рекламується Microsoft як перевага .NET, платформа Java має таку саму можливість.</Paragraph>
+                        </Figure>
+                        <Italic>будь-якому кодуванні, що підтримує</Italic>
+                        XML, але зазвичай використовується кодування UTF-8.
+                    </Paragraph>
+
+                    <BlockUIContainer>
+                        <StackPanel>
+                            <TextBox Name="txtBox" Margin="10"></TextBox>
+                            <Button Width="100" Click="ButtonBase_OnClick">Click</Button>
+                        </StackPanel>
+                    </BlockUIContainer>
+                    <List MarkerStyle="UpperLatin">
+                        <ListItem>
+                            <Paragraph>Sunday</Paragraph>
+                        </ListItem>
+                        <ListItem>
+                            <List MarkerStyle="LowerRoman">
+                                <ListItem>
+                                    <Paragraph>Sunday</Paragraph>
+                                </ListItem>
+                            </List>
+                        </ListItem>
+                        <ListItem>
+                            <Paragraph>Sunday</Paragraph>
+                        </ListItem>
+                    </List>
+
+                    <Table BorderThickness="1" BorderBrush="Black" CellSpacing="0">
+                        <TableRowGroup>
+                            <TableRow>
+                                <TableCell BorderThickness="1" BorderBrush="Black">
+                                    <Paragraph>
+                                        One
+                                    </Paragraph>
+                                </TableCell>
+                                <TableCell BorderThickness="1" BorderBrush="Black">
+                                    <Paragraph>
+                                        One
+                                    </Paragraph>
+                                </TableCell>
+                                <TableCell BorderThickness="1" BorderBrush="Black">
+                                    <Paragraph>
+                                        One
+                                    </Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell BorderThickness="1" BorderBrush="Black">
+                                    <Paragraph>
+                                        One
+                                    </Paragraph>
+                                </TableCell>
+                                <TableCell TextAlignment="Center" BorderThickness="1" BorderBrush="Black">
+                                    <Paragraph>
+                                        One
+                                    </Paragraph>
+                                </TableCell>
+                                <TableCell BorderThickness="1" BorderBrush="Black">
+                                    <Paragraph>
+                                        One
+                                    </Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell ColumnSpan="2" BorderThickness="1" BorderBrush="Black">
+                                    <Paragraph>
+                                        One
+                                    </Paragraph>
+                                </TableCell>
+                                <TableCell BorderThickness="1" BorderBrush="Black">
+                                    <Paragraph>
+                                        One
+                                    </Paragraph>
+                                </TableCell>
+                            </TableRow>
+                        </TableRowGroup>
+                    </Table>
+                </FlowDocument>
+            </FlowDocumentReader>
+        </TabItem>
+    </TabControl>
+</Window>
