@@ -1,0 +1,49 @@
+﻿<Window x:Class="MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM"
+        xmlns:vm="clr-namespace:MVVM.ViewModel"
+        xmlns:converters="clr-namespace:MVVM.ViewModel.Converters"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="521.4" Width="313.2">
+    <Window.Resources>
+        <vm:WeatherVM x:Key="vm" />
+        <converters:HasPresipitationToStringConverter x:Key="hasPresipitationConverter" />
+    </Window.Resources>
+    <Grid Background="LightBlue" DataContext="{StaticResource vm}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>s
+        <StackPanel Margin="10">
+            <Label>Enter name of the city</Label>
+            <TextBox Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Margin="10" Width="100"
+                    Command="{Binding SearchCommand}"
+                    CommandParameter="{Binding Query}">Search</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="10">
+            <ListBox Margin="15" Height="200" ItemsSource="{Binding Cities}"
+                     SelectedItem="{Binding SelectedCity}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="100" Text="{Binding Country.LocalizedName}" />
+                            <TextBlock Width="100" Text="{Binding AdministrativeArea.LocalizedName}" />
+                            <TextBlock Text="{Binding LocalizedName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Background="LightCoral">
+                <Label Content="{Binding SelectedCity.LocalizedName}"/>
+                <Label Content="{Binding CurrentConditions.WeatherText}"/>
+                <Label Content="{Binding CurrentConditions.Temperature.Metric.Value}"/>
+                <Label Content="{Binding CurrentConditions.HasPrecipitation, Converter={StaticResource hasPresipitationConverter}}"/>
+                <Image />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
