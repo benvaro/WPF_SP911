@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:_08_PagesLocalization.Localization"
+                    xmlns:str="clr-namespace:System;assembly=mscorlib">
+    <str:String x:Key="language">Language</str:String> 
+    <str:String x:Key="file">File</str:String> 
+    <str:String x:Key="themes">Themes</str:String> 
+    <str:String x:Key="ua">Ukrainian</str:String> 
+    <str:String x:Key="en">English</str:String> 
+    <str:String x:Key="contact">Contact</str:String> 
+    <str:String x:Key="main">Main page</str:String> 
+    <str:String x:Key="other">Other</str:String> 
+</ResourceDictionary>

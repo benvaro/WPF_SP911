@@ -42,7 +42,7 @@
                 <Label Content="{Binding CurrentConditions.WeatherText}"/>
                 <Label Content="{Binding CurrentConditions.Temperature.Metric.Value}"/>
                 <Label Content="{Binding CurrentConditions.HasPrecipitation, Converter={StaticResource hasPresipitationConverter}}"/>
-                <Image />
+                <Image Source="{Binding CurrentConditions.WeatherIcon, Converter={StaticResource ImageConverter}}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

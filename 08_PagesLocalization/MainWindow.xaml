@@ -1,0 +1,36 @@
+﻿<Window x:Class="_08_PagesLocalization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_08_PagesLocalization"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="file" Header="{DynamicResource file}">
+                <MenuItem Header="Open"/>
+            </MenuItem>
+            <MenuItem x:Name="language" Header="{DynamicResource language}">
+                <MenuItem x:Name="ua" Header="{DynamicResource ua}" Click="changeLang" Tag="ua" />
+                <MenuItem x:Name="en" IsChecked="True" Header="{DynamicResource en}" Click="changeLang" Tag="en" />
+            </MenuItem>
+            <MenuItem x:Name="themes" Header="{DynamicResource themes}">
+                <MenuItem Header="Dark"/>
+                <MenuItem IsChecked="True" Header="Light"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel Width="150" Background="LightBlue">
+            <Button x:Name="main" Content="{DynamicResource main}"/>
+            <Button x:Name="other" Content="{DynamicResource other}"/>
+            <Button x:Name="contact" Content="{DynamicResource contact}"/>
+        </StackPanel>
+        <Frame Background="LightCoral" Source="Pages/main.xaml" />
+    </DockPanel>
+</Window>

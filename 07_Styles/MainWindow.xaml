@@ -1,0 +1,52 @@
+﻿<Window x:Class="_07_Styles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_07_Styles"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450"
+        >
+        <!--Style="{StaticResource windowStyle}"-->
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Constantia"/>
+        </Style>
+        <Style x:Key="btnAgree" TargetType="Button">
+            <Setter Property="Background" Value="Green"/>
+        </Style>
+        <Style x:Key="btnReject" TargetType="Button">
+            <Setter Property="Background" Value="Red"/>
+        </Style>
+    </Window.Resources>
+    
+    <StackPanel>
+        <Button
+            Click="OpenWindow_Click"
+            Style="{StaticResource btnAgree}" Width="100" Content="Some text" />
+
+        <Button Width="300" Content="Other text">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter  Property="Width" Value="80"/>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Label Content="Label text" />
+        <Button Width="40" Style="{StaticResource btnReject}" Content="Blah blah"/>
+        <Button Content="jsjfksd" />
+    </StackPanel>
+
+<!--Пріоритети стилів:
+    1) внутрішні стилі
+    2) стилі-ресурси кнопки (приєднані властивості)
+    3) ресурси вікна
+    
+    4) стилі додатка-->
+</Window>
+
+ 
